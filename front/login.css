@@ -1,0 +1,96 @@
+/* Define uma tipografia base */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #dddddd;
+    color: #000;
+}
+
+/* Estilo do cabeçalho */
+header {
+    background-color: #000; /* Cor de fundo para destacar */
+    color: #f29c00;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Responsivo para telas menores */
+}
+
+/* Estilo da seção de login */
+.login-container {
+    max-width: 400px;
+    margin: 30px auto;
+    padding: 10px;
+    background-color: #dddddd;
+    border: 1px solid #000;
+    border-radius: 8px;
+    box-shadow: 0 5px 10px #000;
+    text-align: center;
+}
+
+.login-container h2 {
+    margin-bottom: 20px;
+    color: #f29c00;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-container img {
+    height: 100px;
+    border: 1px solid #f29c00;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+.form-group input {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.btn-login {
+    background-color: #f29c00;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-login:hover {
+    background-color: #e58a00;
+}
+
+.register-link {
+    margin-top: 15px;
+    font-size: 0.9rem;
+}
+
+.register-link a {
+    color: #f29c00;
+    text-decoration: none;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+} 
