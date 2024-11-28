@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardápio - Refeitório</title>
+    <link rel="stylesheet" href="menu.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="images/logo.png" alt="Logo do Refeitório">
+            <h1>Refeitório do Campus</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="menu.html" class="active">Cardápio</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Cardápio do Dia</h2>
+        <section class="menu-container">
+            <div class="menu-item">
+                <h3>Prato Principal: Lasanha</h3>
+                <p>Descrição: Lasanha de carne com molho branco e queijo gratinado.</p>
+                <div class="feedback">
+                    <label for="feedback-lasanha">Deixe sua avaliação:</label>
+                    <select id="feedback-lasanha" name="feedback-lasanha">
+                        <option value="5">⭐⭐⭐⭐⭐ - Excelente</option>
+                        <option value="4">⭐⭐⭐⭐ - Muito bom</option>
+                        <option value="3">⭐⭐⭐ - Bom</option>
+                        <option value="2">⭐⭐ - Regular</option>
+                        <option value="1">⭐ - Ruim</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <h3>Acompanhamento: Saladas</h3>
+                <p>Descrição: Salada com alface, croutons, molho especial e parmesão.</p>
+                <div class="feedback">
+                    <label for="feedback-salada">Deixe sua avaliação:</label>
+                    <select id="feedback-salada" name="feedback-salada">
+                        <option value="5">⭐⭐⭐⭐⭐ - Excelente</option>
+                        <option value="4">⭐⭐⭐⭐ - Muito bom</option>
+                        <option value="3">⭐⭐⭐ - Bom</option>
+                        <option value="2">⭐⭐ - Regular</option>
+                        <option value="1">⭐ - Ruim</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <h3>Sobremesa: Pudim de Leite</h3>
+                <p>Descrição: Pudim tradicional com calda de caramelo.</p>
+                <div class="feedback">
+                    <label for="feedback-pudim">Deixe sua avaliação:</label>
+                    <select id="feedback-pudim" name="feedback-pudim">
+                        <option value="5">⭐⭐⭐⭐⭐ - Excelente</option>
+                        <option value="4">⭐⭐⭐⭐ - Muito bom</option>
+                        <option value="3">⭐⭐⭐ - Bom</option>
+                        <option value="2">⭐⭐ - Regular</option>
+                        <option value="1">⭐ - Ruim</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <form class="feedback-form">
+            <h3>Envie um Feedback Geral</h3>
+            <textarea name="general-feedback" id="general-feedback" rows="5" placeholder="Escreva aqui seu feedback sobre o cardápio de hoje..."></textarea>
+            <button type="submit" class="btn-feedback">Enviar Feedback</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Refeitório Dev Web. Todos os direitos reservados.</p>
+        <img src="images/logo.png" alt="Logo do Refeitório" class="footer-logo">
+    </footer>
+
+    <!-- Adicione links para JavaScript, se necessário -->
+    <script src="scripts/main.js"></script>
+</body>
+</html>
