@@ -1,0 +1,22 @@
+{
+  "name": "projeto_final_devweb",
+  "version": "1.0.0",
+  "description": "Projeto para cardapio do refeitorio e avaliacoes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "projeto_final_dev_web"
+  },
+  "keywords": [
+    "tranquilo_e_favoravel"
+  ],
+  "author": "thierry-msm",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.1",
+    "firebase": "^11.0.2"
+  }
+}
