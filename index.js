@@ -18,8 +18,6 @@ server.get('/home', (req, res) => {
     res.sendFile(path.join(__dirname, 'front/index/home.html'));
 });
 
-
-
 // Iniciar o servidor
 server.listen(port, () => {
     console.log(`Servidor rodando em http://localhost:${port}`);
