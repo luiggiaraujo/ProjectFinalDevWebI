@@ -1,40 +1,85 @@
-// Função para exibir o cardápio na página
-function displayMenu() {
-    // Recuperar os dados do cardápio do localStorage
-    const menu = JSON.parse(localStorage.getItem("menu"));
-
+// Recebe os dados do cardápio do localStorage
+function getMenu() {
+    const menu = JSON.parse(localStorage.getItem('menu'));
     if (menu) {
-        const menuContainer = document.querySelector(".menu-container");
-
-        // Limpar o conteúdo atual do cardápio
-        menuContainer.innerHTML = "";
-
-        // Criar o HTML para cada categoria do cardápio
-        const categories = ["main", "side", "dessert"];
-        categories.forEach(category => {
-            const categoryTitle = category === "main" ? "Prato Principal" :
-                                  category === "side" ? "Acompanhamento" : "Sobremesa";
-            
-            const title = menu[category].title;
-            const description = menu[category].description;
-
-            // Criar um elemento para exibir o título e descrição
-            const categoryElement = document.createElement("div");
-            categoryElement.classList.add("menu-item");
-            categoryElement.innerHTML = `
-                <h2>${categoryTitle}</h2>
-                <h3>${title}</h3>
-                <p>${description}</p>
-            `;
-
-            // Adicionar o item ao contêiner do cardápio
-            menuContainer.appendChild(categoryElement);
-        });
+        return menu;
     } else {
-        const menuContainer = document.querySelector(".menu-container");
-        menuContainer.innerHTML = "<p>O cardápio ainda não foi configurado.</p>";
+        return {
+            main: { title: 'Prato Principal', description: 'Descrição do prato principal.' },
+            side: { title: 'Acompanhamento', description: 'Descrição do acompanhamento.' },
+            dessert: { title: 'Sobremesa', description: 'Descrição da sobremesa.' }
+        };
     }
 }
 
-// Chamar a função para exibir o cardápio quando a página carregar
-window.onload = displayMenu;
+// Atualiza a exibição do cardápio
+function displayMenu(menu) {
+    const menuContainer = document.querySelector('.menu-container');
+
+    // Cria os itens do cardápio
+    const menuItems = ['main', 'side', 'dessert'];
+    menuContainer.innerHTML = ''; // Limpa o conteúdo atual
+
+    menuItems.forEach(category => {
+        const menuItem = document.createElement('div');
+        menuItem.classList.add('menu-item');
+        menuItem.innerHTML = `
+            <h3>${menu[category].title}</h3>
+            <p>${menu[category].description}</p>
+        `;
+        menuContainer.appendChild(menuItem);
+    });
+}
+
+// Feedback do usuário
+document.addEventListener('DOMContentLoaded', () => {
+    const menu = getMenu();
+    displayMenu(menu);
+
+    // Captura a classificação por estrelas
+    const stars = document.querySelectorAll('.star');
+    const ratingInput = document.getElementById('rating');
+
+    stars.forEach(star => {
+        star.addEventListener('click', () => {
+            const value = star.getAttribute('data-value');
+            ratingInput.value = value;
+
+            // Atualiza a aparência das estrelas
+            stars.forEach(s => s.classList.remove('selected'));
+            for (let i = 0; i < value; i++) {
+                stars[i].classList.add('selected');
+            }
+        });
+    });
+
+    // Enviar feedback
+    const feedbackForm = document.getElementById('feedback-form');
+    feedbackForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const feedback = document.getElementById('general-feedback').value;
+        const rating = ratingInput.value;
+
+        if (rating > 0 || feedback.trim()) {
+            const feedbackData = {
+                rating: rating,
+                feedback: feedback
+            };
+
+            // Aqui você pode enviar os dados para um servidor ou armazenar localmente
+            console.log('Feedback enviado:', feedbackData);
+
+            // Exemplo de como armazenar o feedback localmente
+            let allFeedbacks = JSON.parse(localStorage.getItem('feedbacks')) || [];
+            allFeedbacks.push(feedbackData);
+            localStorage.setItem('feedbacks', JSON.stringify(allFeedbacks));
+
+            alert('Obrigado pelo seu feedback!');
+            feedbackForm.reset();
+            stars.forEach(star => star.classList.remove('selected'));
+        } else {
+            alert('Por favor, forneça uma avaliação ou um comentário.');
+        }
+    });
+});

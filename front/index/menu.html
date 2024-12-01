@@ -27,8 +27,19 @@
             <!-- Os itens do cardápio serão adicionados pelo JS -->
         </section>
 
-        <form class="feedback-form">
+        <form class="feedback-form" id="feedback-form">
             <h3>Envie um Feedback Geral</h3>
+            
+            <div class="stars">
+                <label for="rating">Classifique o cardápio: </label>
+                <span class="star" data-value="1">★</span>
+                <span class="star" data-value="2">★</span>
+                <span class="star" data-value="3">★</span>
+                <span class="star" data-value="4">★</span>
+                <span class="star" data-value="5">★</span>
+                <input type="hidden" id="rating" name="rating" value="0">
+            </div>
+
             <textarea name="general-feedback" id="general-feedback" rows="5" placeholder="Escreva aqui seu feedback sobre o cardápio de hoje..."></textarea>
             <button type="submit" class="btn-feedback">Enviar Feedback</button>
         </form>
@@ -39,7 +50,6 @@
         <img src="../images/logo.png" alt="Logo do Refeitório" class="footer-logo">
     </footer>
 
-    <!-- Adicione links para JavaScript, se necessário -->
     <script src="../scripts/menu.js"></script>
 </body>
 </html>
