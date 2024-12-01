@@ -1,7 +1,7 @@
 // Importar a configuração do Firebase Firestore
 const { initializeApp } = require('firebase/app');
 const { getFirestore} = require('firebase/firestore');
-const { getAuth } = require('firebase/auth');
+const { getAuth, GoogleAuthProvider } = require('firebase/auth');
 
 // Your web app's Firebase configuration
 const firebaseConfig = {

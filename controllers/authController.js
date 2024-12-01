@@ -1,24 +1,28 @@
 // Importar o Firebase Authentication
-const { auth } = require('../firebase/firebaseConfig');
+const { auth } = require('../config/firebaseConfig');
 const { GoogleAuthProvider, signInWithPopup } = require('firebase/auth');
 
-// Função para lidar com login usando Google
-async function loginWithGoogle(req, res) {
-  try {
-    // Criar uma nova instância do provedor Google
-    const provider = new GoogleAuthProvider();
-
-    // Realizar o login com Google via popup (apenas como exemplo, pois em Node.js geralmente se usa OAuth2)
-    const result = await signInWithPopup(auth, provider);
-    const user = result.user;
-
-    // Após login bem-sucedido
-    res.send(`Usuário logado com sucesso: ${user.displayName}`);
-  } catch (error) {
-    console.error('Erro ao fazer login com Google:', error);
-    res.status(500).send('Erro ao fazer login com Google');
+// Função para lidar com o login usando o Google
+function loginWithGoogle(req, res) {
+    try {
+      const provider = new GoogleAuthProvider();
+      
+      // Em um ambiente de servidor (Node.js), não é possível usar signInWithPopup diretamente.
+      // Essa abordagem funcionará no cliente (lado do navegador).
+      signInWithPopup(auth, provider)
+        .then((result) => {
+          const user = result.user;
+          console.log(`Usuário logado com sucesso: ${user.displayName}`);
+          res.redirect('/home'); // Redireciona para a página principal após o login
+        })
+        .catch((error) => {
+          console.error('Erro ao fazer login com Google:', error);
+          res.status(500).send('Erro ao fazer login com Google');
+        });
+    } catch (error) {
+      console.error('Erro ao iniciar o login com Google:', error);
+      res.status(500).send('Erro ao iniciar o login com Google');
+    }
   }
-}
-
-// Exportar a função para ser utilizada nas rotas
-module.exports = { loginWithGoogle };
+  
+  module.exports = { loginWithGoogle };
