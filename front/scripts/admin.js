@@ -1,4 +1,3 @@
-// admin.js
 
 document.getElementById('edit-menu-form').addEventListener('submit', function(event) {
     event.preventDefault();

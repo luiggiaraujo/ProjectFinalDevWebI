@@ -42,3 +42,16 @@ googleLogin.addEventListener("click", function () {
             console.error("Erro no login:", errorCode, errorMessage);
         });
 });
+
+function updateUserProfile(user) {
+    const userName = user.displayName;
+    const userEmail = user.email;
+    const userProfilePicture = user.photoURL;
+
+    // Atualiza os elementos da seção de perfil com os dados do usuário
+    document.getElementById("userName").textContent = userName;
+    document.getElementById("userEmail").textContent = userEmail;
+    document.getElementById("userProfilePicture").src = userProfilePicture;
+}
+
+updateUserProfile();
