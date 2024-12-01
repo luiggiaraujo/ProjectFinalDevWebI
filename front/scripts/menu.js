@@ -1,85 +1,47 @@
-// Recebe os dados do cardápio do localStorage
-function getMenu() {
-    const menu = JSON.parse(localStorage.getItem('menu'));
-    if (menu) {
-        return menu;
-    } else {
-        return {
-            main: { title: 'Prato Principal', description: 'Descrição do prato principal.' },
-            side: { title: 'Acompanhamento', description: 'Descrição do acompanhamento.' },
-            dessert: { title: 'Sobremesa', description: 'Descrição da sobremesa.' }
-        };
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
+import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-firestore.js";
+
+// Configuração do Firebase
+const firebaseConfig = {
+    apiKey: "AIzaSyAb2wU3VKcDJ5G7XtIrjJjNbZjOkj2oGJE",
+    authDomain: "refeitorio-devweb.firebaseapp.com",
+    projectId: "refeitorio-devweb",
+    storageBucket: "refeitorio-devweb.firebasestorage.app",
+    messagingSenderId: "340306115667",
+    appId: "1:340306115667:web:0ed867c679a17f2198daa6"
+};
+
+// Inicializa o Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+// Dias da semana
+const weekDays = ["segunda", "terca", "quarta", "quinta", "sexta"];
+
+// Função para carregar o cardápio
+async function loadMenu() {
+    const weekMenuContainer = document.getElementById("week-menu");
+
+    for (const day of weekDays) {
+        const docRef = doc(db, "Cardapio", day); // Referência ao documento
+        const docSnap = await getDoc(docRef); // Busca o documento
+
+        // Verifica se o documento existe
+        const data = docSnap.exists() ? docSnap.data() : { nome: "Prato não disponível", descricao: "Descrição não disponível" };
+
+        // Cria a estrutura HTML da caixa
+        const dayBox = document.createElement("div");
+        dayBox.classList.add("day-box");
+
+        dayBox.innerHTML = `
+            <h3>${day.charAt(0).toUpperCase() + day.slice(1)}</h3>
+            <p><strong>Prato:</strong> ${data.nome}</p>
+            <p><strong>Descrição:</strong> ${data.descricao}</p>
+        `;
+
+        weekMenuContainer.appendChild(dayBox); // Adiciona a caixa ao container
     }
 }
 
-// Atualiza a exibição do cardápio
-function displayMenu(menu) {
-    const menuContainer = document.querySelector('.menu-container');
-
-    // Cria os itens do cardápio
-    const menuItems = ['main', 'side', 'dessert'];
-    menuContainer.innerHTML = ''; // Limpa o conteúdo atual
-
-    menuItems.forEach(category => {
-        const menuItem = document.createElement('div');
-        menuItem.classList.add('menu-item');
-        menuItem.innerHTML = `
-            <h3>${menu[category].title}</h3>
-            <p>${menu[category].description}</p>
-        `;
-        menuContainer.appendChild(menuItem);
-    });
-}
-
-// Feedback do usuário
-document.addEventListener('DOMContentLoaded', () => {
-    const menu = getMenu();
-    displayMenu(menu);
-
-    // Captura a classificação por estrelas
-    const stars = document.querySelectorAll('.star');
-    const ratingInput = document.getElementById('rating');
-
-    stars.forEach(star => {
-        star.addEventListener('click', () => {
-            const value = star.getAttribute('data-value');
-            ratingInput.value = value;
-
-            // Atualiza a aparência das estrelas
-            stars.forEach(s => s.classList.remove('selected'));
-            for (let i = 0; i < value; i++) {
-                stars[i].classList.add('selected');
-            }
-        });
-    });
-
-    // Enviar feedback
-    const feedbackForm = document.getElementById('feedback-form');
-    feedbackForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-
-        const feedback = document.getElementById('general-feedback').value;
-        const rating = ratingInput.value;
-
-        if (rating > 0 || feedback.trim()) {
-            const feedbackData = {
-                rating: rating,
-                feedback: feedback
-            };
-
-            // Aqui você pode enviar os dados para um servidor ou armazenar localmente
-            console.log('Feedback enviado:', feedbackData);
-
-            // Exemplo de como armazenar o feedback localmente
-            let allFeedbacks = JSON.parse(localStorage.getItem('feedbacks')) || [];
-            allFeedbacks.push(feedbackData);
-            localStorage.setItem('feedbacks', JSON.stringify(allFeedbacks));
-
-            alert('Obrigado pelo seu feedback!');
-            feedbackForm.reset();
-            stars.forEach(star => star.classList.remove('selected'));
-        } else {
-            alert('Por favor, forneça uma avaliação ou um comentário.');
-        }
-    });
-});
+// Carrega o cardápio ao carregar a página
+document.addEventListener("DOMContentLoaded", loadMenu);

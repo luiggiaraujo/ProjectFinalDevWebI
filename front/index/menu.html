@@ -22,27 +22,10 @@
     </header>
 
     <main>
-        <h2>Cardápio do Dia</h2>
-        <section class="menu-container">
-            <!-- Os itens do cardápio serão adicionados pelo JS -->
+        <h2>Cardápio da Semana</h2>
+        <section id="week-menu">
+            <!-- As caixas serão adicionadas dinamicamente pelo JavaScript -->
         </section>
-
-        <form class="feedback-form" id="feedback-form">
-            <h3>Envie um Feedback Geral</h3>
-            
-            <div class="stars">
-                <label for="rating">Classifique o cardápio: </label>
-                <span class="star" data-value="1">★</span>
-                <span class="star" data-value="2">★</span>
-                <span class="star" data-value="3">★</span>
-                <span class="star" data-value="4">★</span>
-                <span class="star" data-value="5">★</span>
-                <input type="hidden" id="rating" name="rating" value="0">
-            </div>
-
-            <textarea name="general-feedback" id="general-feedback" rows="5" placeholder="Escreva aqui seu feedback sobre o cardápio de hoje..."></textarea>
-            <button type="submit" class="btn-feedback">Enviar Feedback</button>
-        </form>
     </main>
 
     <footer>
@@ -50,6 +33,6 @@
         <img src="../images/logo.png" alt="Logo do Refeitório" class="footer-logo">
     </footer>
 
-    <script src="../scripts/menu.js"></script>
+    <script src="../scripts/menu.js" type="module"></script>
 </body>
 </html>
