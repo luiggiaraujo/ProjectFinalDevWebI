@@ -4,12 +4,12 @@ import axios from 'axios'; // Requer o axios para enviar solicitação ao servid
 
 // Configuração do Firebase (deve ser a mesma configuração do firebaseConfig.js)
 const firebaseConfig = {
-  apiKey: "SEU_API_KEY",
-  authDomain: "SEU_AUTH_DOMAIN",
-  projectId: "SEU_PROJECT_ID",
-  storageBucket: "SEU_STORAGE_BUCKET",
-  messagingSenderId: "SEU_MESSAGING_SENDER_ID",
-  appId: "SEU_APP_ID"
+  apiKey: "AIzaSyAb2wU3VKcDJ5G7XtIrjJjNbZjOkj2oGJE",
+  authDomain: "refeitorio-devweb.firebaseapp.com",
+  projectId: "refeitorio-devweb",
+  storageBucket: "refeitorio-devweb.firebasestorage.app",
+  messagingSenderId: "340306115667",
+  appId: "1:340306115667:web:0ed867c679a17f2198daa6"
 };
 
 // Inicializa o Firebase e a autenticação
