@@ -32,7 +32,7 @@ googleLogin.addEventListener("click", function () {
             console.log(user);
 
             // Redireciona o usuário para a página desejada
-            window.location.href = "home.html";
+            window.location.href = "/index/home.html";
         })
         .catch((error) => {
             // Manipula erros no login
