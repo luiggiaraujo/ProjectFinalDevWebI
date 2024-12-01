@@ -22,46 +22,9 @@
     </header>
 
     <main>
-        <h2>Editar Cardápio do Dia</h2>
-        <form id="edit-menu-form">
-            <fieldset>
-                <legend>Prato Principal</legend>
-                <div class="form-group">
-                    <label for="main-title">Título</label>
-                    <input type="text" id="main-title" placeholder="Digite o título do prato principal" required>
-                </div>
-                <div class="form-group">
-                    <label for="main-description">Descrição</label>
-                    <textarea id="main-description" placeholder="Digite a descrição do prato principal" required></textarea>
-                </div>
-            </fieldset>
-
-            <fieldset>
-                <legend>Acompanhamento</legend>
-                <div class="form-group">
-                    <label for="side-title">Título</label>
-                    <input type="text" id="side-title" placeholder="Digite o título do acompanhamento" required>
-                </div>
-                <div class="form-group">
-                    <label for="side-description">Descrição</label>
-                    <textarea id="side-description" placeholder="Digite a descrição do acompanhamento" required></textarea>
-                </div>
-            </fieldset>
-
-            <fieldset>
-                <legend>Sobremesa</legend>
-                <div class="form-group">
-                    <label for="dessert-title">Título</label>
-                    <input type="text" id="dessert-title" placeholder="Digite o título da sobremesa" required>
-                </div>
-                <div class="form-group">
-                    <label for="dessert-description">Descrição</label>
-                    <textarea id="dessert-description" placeholder="Digite a descrição da sobremesa" required></textarea>
-                </div>
-            </fieldset>
-
-            <button type="submit" class="btn-submit">Salvar Cardápio</button>
-        </form>
+        <h2>Editar Cardápio da Semana</h2>
+        <div id="week-menu"></div>
+        <button id="save-button" class="btn-submit">Salvar Cardápio</button>
     </main>
 
     <footer>
@@ -69,6 +32,6 @@
         <img src="../images/logo.png" alt="Logo do Refeitório" class="footer-logo">
     </footer>
 
-    <script src="../scripts/admin.js"></script>
+    <script src="../scripts/admin.js" type="module"></script>
 </body>
-</html> 
+</html>

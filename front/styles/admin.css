@@ -1,4 +1,43 @@
-/* Define uma tipografia base */
+/* Estilo das caixas de dias da semana */
+.day-box {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 15px auto;
+    max-width: 600px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: left;
+}
+
+.day-box h3 {
+    margin-top: 0;
+    font-size: 20px;
+    color: #f29c00;
+}
+
+.day-box .form-group {
+    margin-bottom: 10px;
+}
+
+.day-box .form-group label {
+    font-size: 14px;
+    color: #000;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.day-box .form-group input,
+.day-box .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
