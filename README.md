@@ -69,16 +69,20 @@ Este projeto tem como objetivo criar um sistema web para gerenciar o refeitório
 ## Imagens das Telas
 
 ### Tela de Login
-*(inserir imagem aqui)*
+![image](https://github.com/user-attachments/assets/66a661de-7b28-499a-9cec-cbf19a6d1dc7)
 
-### Tela de Cadastro
-*(inserir imagem aqui)*
 
-### Tela de Cardápio do Usuário
-*(inserir imagem aqui)*
+### Tela de menu (visualização de todos os pratos)
+![image](https://github.com/user-attachments/assets/ef3daa7e-59f9-4d5d-963d-ffb2cb810c53)
+
+
+### Tela de cardápio da semana
+![image](https://github.com/user-attachments/assets/5d0271b5-0d01-404e-b576-6d204f1e4221)
+
 
 ### Tela de Gestão de Cardápio (Administrador)
-*(inserir imagem aqui)*
+![image](https://github.com/user-attachments/assets/b3a3308a-5376-4ce6-9720-f6794ff7b1f6)
+
 
 
 
