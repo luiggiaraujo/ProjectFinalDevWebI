@@ -23,7 +23,7 @@ async function loadMenu() {
     const weekMenuContainer = document.getElementById("week-menu");
 
     for (const day of weekDays) {
-        const docRef = doc(db, "Cardapio", day);
+        const docRef = doc(db, "cardapio", day);
         const docSnap = await getDoc(docRef);
 
         const data = docSnap.exists() ? docSnap.data() : { nome: "", descricao: "" };
@@ -53,7 +53,7 @@ async function saveMenu() {
         const nome = document.getElementById(`${day}-nome`).value;
         const descricao = document.getElementById(`${day}-descricao`).value;
 
-        const docRef = doc(db, "Cardapio", day);
+        const docRef = doc(db, "cardapio", day);
 
         await setDoc(docRef, { nome, descricao });
     }

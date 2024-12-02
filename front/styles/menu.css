@@ -6,6 +6,10 @@ body {
     color: #000;
 }
 
+h2 {
+    text-align: center; /* Centraliza o texto dentro do contêiner */
+}
+
 /* Estilo do cabeçalho */
 header {
     background-color: #000; /* Cor de fundo para destacar */

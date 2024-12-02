@@ -18,20 +18,6 @@
     <main>
         <section class="login-container">
             <h2>Login</h2>
-            <form action="processa_login.php" method="POST" class="login-form">
-                <div class="form-group">
-                    <label for="email">E-mail:</label>
-                    <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
-                </div>
-                <div class="form-group">
-                    <label for="password">Senha:</label>
-                    <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
-                </div>
-                <button type="submit" class="btn-login">Entrar</button>
-            </form>
-            <p class="register-link">
-                Não tem uma conta? <a href="register.html">Cadastre-se</a>
-            </p>
             <div class="google-login">
                 <button id="btn-google-login" class="btn-google-login">
                     Continuar com Google
@@ -40,5 +26,9 @@
         </section>        
     </main>
     <script src="../scripts/login.js" type ="module"></script>
+    <footer>
+        <p>&copy; 2024 Refeitório Dev Web. Todos os direitos reservados.</p>
+        <img src="../images/logo.png" alt="Logo do Refeitório" class="footer-logo">
+    </footer>
 </body>
 </html>

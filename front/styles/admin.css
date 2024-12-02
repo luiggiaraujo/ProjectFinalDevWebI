@@ -1,3 +1,6 @@
+h2 {
+    text-align: center; /* Centraliza o texto dentro do contêiner */
+}
 /* Estilo das caixas de dias da semana */
 .day-box {
     background-color: #fff;
@@ -142,11 +145,15 @@ input {
     font-weight: bold;
     border-radius: 5px;
     cursor: pointer;
+    display: block; /* Torna o botão um elemento de bloco */
+    margin: 20px auto; /* Centraliza o botão horizontalmente */
+    text-align: center; /* Garante que o texto fique centralizado */
 }
 
 .btn-submit:hover {
     background-color: #e58a00;
 }
+
 
 /* Estilo do rodapé */
 footer {

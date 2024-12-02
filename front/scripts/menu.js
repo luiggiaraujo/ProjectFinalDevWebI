@@ -23,7 +23,7 @@ async function loadMenu() {
     const weekMenuContainer = document.getElementById("week-menu");
 
     for (const day of weekDays) {
-        const docRef = doc(db, "Cardapio", day); // Referência ao documento
+        const docRef = doc(db, "cardapio", day); // Referência ao documento
         const docSnap = await getDoc(docRef); // Busca o documento
 
         // Verifica se o documento existe
