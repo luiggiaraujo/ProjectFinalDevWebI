@@ -1,4 +1,4 @@
-# ProjectFinalDevWebI# Refeitório do Campus - Projeto Web
+# ProjectFinalDevWebI# Refeitório do Campus 
 
 ## Descrição
 
@@ -16,6 +16,14 @@ Este projeto tem como objetivo criar um sistema web para gerenciar o refeitório
 - **Login e Cadastro**: Usuários podem se cadastrar e fazer login, incluindo autenticação com Google.
 - **Gestão de Cardápio**: Administradores podem adicionar, editar e atualizar o cardápio semanal.
 - **Visualização dos pratos**: Usuários podem visualizar o cardápio e os pratos do refeitório para a semana.
+
+## Banco de Dados
+
+O projeto utiliza o Firebase Firestore como banco de dados principal, que contém três coleções principais:
+
+- **cardapio**: Esta coleção contém documentos que representam os dias da semana (segunda, terça, quarta, quinta, sexta). Cada documento possui os campos `nome` e `descricao` que representam o prato do dia e sua descrição.
+- **refeicoes**: Contém os pratos principais do refeitório. Cada documento possui detalhes sobre o nome do prato, sua descrição e a avaliação dos usuários.
+- **usuarios**: Armazena informações dos usuários cadastrados, incluindo detalhes como `nome` e `email`.
 
 ## Instruções para Instalação e Execução do Projeto
 
